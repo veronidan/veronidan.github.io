@@ -7,6 +7,13 @@
 
 <script type="text/javascript">
 
+function AskName() {
+   var name = prompt("Please tell me your name");
+   if (name != '') {
+      document.getElementById("message").innerHTML =
+      "Hello " + name + ", Nice to meet you!";
+   }
+}
 
 </script>
 
@@ -15,9 +22,14 @@
 
 <body onload="alert('Nice to meet you!');">
 
-<h1>This is a H1 Header</h1>
+<h1>User Interface:</h1>
 
-<p>Here is some paragraph text.</p>
+<p>Here is a button for interacting:</p>
+
+<button onclick="AskName()">Click Here</button>
+
+<p id="message"></p>
+
 
 </body>
 
