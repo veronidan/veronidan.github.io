@@ -1,0 +1,43 @@
+body {
+
+   background-color:darkgoldenrod;
+}
+
+#heading {
+
+   background-color: blue;
+   color:darkgoldenrod;
+   text-align: center;
+
+}
+
+#container {
+
+   margin-left: auto;
+   margin-right: auto;
+   background-color: lightgoldenrodyellow;
+   width: 800px;
+}
+
+#content {
+
+   padding: 10px;
+}
+
+#nav {
+
+   width: 180px;
+   float: left;
+   padding: 10px;
+}
+
+#main {
+
+   width: 580px;
+   float: right;
+}
+
+#photos {
+
+   clear:both;
+}

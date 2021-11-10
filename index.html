@@ -3,33 +3,72 @@
 
 <head>
 
-   <title>Project Wk 3</title>
+   <title>Project Wk 4</title>
 
-<script type="text/javascript">
-
-function AskName() {
-   var name = prompt("Please tell me your name");
-   if (name != '') {
-      document.getElementById("message").innerHTML =
-      "Hello " + name + ", Nice to meet you!";
-   }
-}
-
-</script>
-
+   <link rel="stylesheet" type="text/css" href="mystyle.css">
 
 </head>
 
-<body onload="alert('Nice to meet you!');">
+<body>
 
-<h1>User Interface:</h1>
+   <div id="container">
 
-<p>Here is a button for interacting:</p>
+      <div id="heading">
+         <h1>My Week 4 Project</h1>
+      </div>
 
-<button onclick="AskName()">Click Here</button>
+      <div id="content">
 
-<p id="message"></p>
+         <div id="nav">
+            <h3>Nav Panel</h3>
+            <ul>
+               <li>Home</li>
+               <li>People</li>
+               <li>Contact</li>
+            </ul>
+         </div>
 
+         <div id="main">
+            <h3>Place for Text</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi qui illo aperiam recusandae fugit explicabo aspernatur laudantium laboriosam delectus neque!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam quos et tempora. Rerum corrupti nesciunt amet maxime ipsa accusantium adipisci aliquid laboriosam est. Illum, quos facere. Est nesciunt corporis eum!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+         </div>
+
+      </div>
+
+      <div id="photos">
+         <table>
+
+            <tr>
+               <th>Goal</th>
+               <th>Implement</th>
+               <th>Photo credit</th>
+            </tr>
+
+            <tr>
+               <td>Quickly change both location and climate</td>
+               <td><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Festival_automobile_international_2015_-_Ferrari_F12_TRS_-_007_%28cropped%29.jpg/320px-Festival_automobile_international_2015_-_Ferrari_F12_TRS_-_007_%28cropped%29.jpg/></td>
+               <td>Thesupermat</td>
+            </tr>
+
+            <tr>
+               <td>Quickly change location only</td>
+               <td><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tesla_Roadster.JPG/320px-Tesla_Roadster.JPG/></td>
+               <td>Thesupermat</td>
+            </tr>
+         </table>
+
+      </div>
+
+      <div id="footer">
+         <h3>Acknowledgements</h3>
+         <p>Site based on video by Jake Wright:</p>
+
+
+      </div>
+
+   </div>
 
 </body>
 
