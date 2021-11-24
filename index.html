@@ -11,24 +11,45 @@
 
 <script type="text/javascript">
 
+
+function CheckName( ) {
+
+   var regex = /^[A-Za-z]{1,5}$/;
+
+   if ( regex.test( document.getElementById("nameInput").value ) ) {
+      document.getElementById("nameMsg").style.color = "Green";
+      document.getElementById("nameMsg").innerHTML = "Accepted";
+   }
+   else {
+      document.getElementById("nameMsg").style.color = "Red";
+      document.getElementById("nameMsg").innerHTML = "Error, invalid entry. Input 1 - 5 chars";
+   }
+}
+
 const foodMenu = [ "Hamburger", "Cheeseburger", "Grilled Chicken", "Fish Sandwich", "Gyro", "Fiesta Salad"];
 const drinkMenu = [ "Coca-cola", "Sprite", "Ice tea", "Water"];
 
 function CheckMenu_food( ) {
-   if ( foodMenu.find( document.getElementById("foodReq") ) == undefined ) {
-      document.getElementById("foodMsg").innerHTML = "Item requested not on menu. Choose from menu.";
+
+   if ( foodMenu.includes( document.getElementById("foodReq").value ) ) {
+      document.getElementById("foodMsg").style.color = "Green";
+      document.getElementById("foodMsg").innerHTML = "Accepted";
    }
    else {
-      document.getElementById("foodMsg").innerHTML = "Accepted.";
+      document.getElementById("foodMsg").style.color = "Red";
+      document.getElementById("foodMsg").innerHTML = "Error, entry not on food menu.  Choose from food menu.";
    }
 }
 
 function CheckMenu_drink( ) {
-   if ( drinkMenu.find( document.getElementById("drinkReq") ) == undefined ) {
-      document.getElementById("drinkMsg").innerHTML = "Item requested not on menu. Choose from menu.";
+
+   if ( drinkMenu.includes( document.getElementById("drinkReq").value ) ) {
+      document.getElementById("drinkMsg").style.color = "Green";
+      document.getElementById("drinkMsg").innerHTML = "Accepted";
    }
    else {
-      document.getElementById("drink").innerHTML = "Accepted.";
+      document.getElementById("drinkMsg").style.color = "Red";
+      document.getElementById("drinkMsg").innerHTML = "Error, entry not on drink menu.  Choose from drink menu.";
    }
 }
 
@@ -38,6 +59,10 @@ function CheckMenu_drink( ) {
 </head>
 
 <body>
+
+   <div id="heading">
+      <h1>My Week 5 Project</h1>
+   </div>
 
    <table>
       <tr>
@@ -53,30 +78,33 @@ function CheckMenu_drink( ) {
          </td>
       </tr>
    </table>
+
+   <br><h3>User must properly enter name, or message shows error.</h3>
+
    <form>
-
-
-   <fieldset class=cust>
+   <!--<fieldset class=cust>
       <legend>Customer Order </legend>
-      <label for="name">Name:</label>
-      <input type=text name="name" value="enter name"><br>
+-->
+      <label for="name">Customer Name: (1 to 5 alphabet chars)</label>
+      <input id="nameInput" type=text name="name" onblur="CheckName();"/><span id="nameMsg"></span><br>
 
-      <br><label for="food">Meal:</label>
-      <input id="foodReq" type=text name="food" value="enter from food menu" onblur="CheckMenu_food();"/><span id="foodMsg">reply</span><br>
+      <br><h3>User must choose properly from each menu, or message shows error.</h3>
 
-      <br><label for="drink">Drink:</label>
-      <input id="drinkReq" type=text name="drink" value="enter from drink menu" onblur="CheckMenu_drink();"/><span id="drinkMsg">reply</span><br>
+      <label for="food">Food: </label>
+      <input id="foodReq" type=text name="food" onblur="CheckMenu_food();"/> <span id="foodMsg"></span><br>
 
+      <br><label for="drink">Drink: </label>
+      <input id="drinkReq" type=text name="drink" onblur="CheckMenu_drink();"/> <span id="drinkMsg"></span><br>
 
-
-      <br><label for="dest">Check One:</label><br>
+      <br><label for="dest">Check One: </label><br>
       <input type="radio" name="dest" value="Eat in" checked>Eat in<br>
       <input type="radio" name="dest" value="Take Out">Take Out<br>
 
-      <br><label for="tableNo">Table No. (1 to 12, zero if take-out):</label><br>
+      <p>(Learn later how to test for range on this):</p>
+      <label for="tableNo">Table No. (1 to 12, zero if take-out):</label><br>
       <input type="number" name="tableNo" value="0"  min="0" max="12"><br><br>
 
-   </fieldset>
+<!--   </fieldset> -->
 
 
 </form>

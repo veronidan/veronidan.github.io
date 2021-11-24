@@ -1,6 +1,6 @@
 body {
 
-   background-color:darkgoldenrod;
+   background-color:lightgoldenrodyellow;
 }
 
 table, tr, th, td {
@@ -8,4 +8,12 @@ table, tr, th, td {
    margin-left: 60px;
    border: 1px solid black;
    padding: 10px
+}
+
+#heading {
+
+   background-color: blue;
+   color:darkgoldenrod;
+   text-align: center;
+
 }
