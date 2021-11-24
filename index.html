@@ -3,72 +3,83 @@
 
 <head>
 
-   <title>Project Wk 4</title>
+   <title>Project Wk 5</title>
 
-   <link rel="stylesheet" type="text/css" href="mystyle.css">
+   <link rel="stylesheet" type="text/css" href="wk5style.css">
+
+
+
+<script type="text/javascript">
+
+const foodMenu = [ "Hamburger", "Cheeseburger", "Grilled Chicken", "Fish Sandwich", "Gyro", "Fiesta Salad"];
+const drinkMenu = [ "Coca-cola", "Sprite", "Ice tea", "Water"];
+
+function CheckMenu_food( ) {
+   if ( foodMenu.find( document.getElementById("foodReq") ) == undefined ) {
+      document.getElementById("foodMsg").innerHTML = "Item requested not on menu. Choose from menu.";
+   }
+   else {
+      document.getElementById("foodMsg").innerHTML = "Accepted.";
+   }
+}
+
+function CheckMenu_drink( ) {
+   if ( drinkMenu.find( document.getElementById("drinkReq") ) == undefined ) {
+      document.getElementById("drinkMsg").innerHTML = "Item requested not on menu. Choose from menu.";
+   }
+   else {
+      document.getElementById("drink").innerHTML = "Accepted.";
+   }
+}
+
+</script>
+
 
 </head>
 
 <body>
 
-   <div id="container">
+   <table>
+      <tr>
+         <th>Food</th><th>Drink</th>
+      </tr>
+      <tr>
+         <td>
+            <p>Hamburger<br>Cheeseburger<br>Grilled Chicken<br>Fish Sandwich<br>
+            Gyro<br>Fiesta Salad<br></p>
+         </td>
+         <td>
+            <p>Coca-cola<br>Sprite<br>Ice tea<br>Water<br></p>
+         </td>
+      </tr>
+   </table>
+   <form>
 
-      <div id="heading">
-         <h1>My Week 4 Project</h1>
-      </div>
 
-      <div id="content">
+   <fieldset class=cust>
+      <legend>Customer Order </legend>
+      <label for="name">Name:</label>
+      <input type=text name="name" value="enter name"><br>
 
-         <div id="nav">
-            <h3>Nav Panel</h3>
-            <ul>
-               <li>Home</li>
-               <li>People</li>
-               <li>Contact</li>
-            </ul>
-         </div>
+      <br><label for="food">Meal:</label>
+      <input id="foodReq" type=text name="food" value="enter from food menu" onblur="CheckMenu_food();"/><span id="foodMsg">reply</span><br>
 
-         <div id="main">
-            <h3>Place for Text</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi qui illo aperiam recusandae fugit explicabo aspernatur laudantium laboriosam delectus neque!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam quos et tempora. Rerum corrupti nesciunt amet maxime ipsa accusantium adipisci aliquid laboriosam est. Illum, quos facere. Est nesciunt corporis eum!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-         </div>
+      <br><label for="drink">Drink:</label>
+      <input id="drinkReq" type=text name="drink" value="enter from drink menu" onblur="CheckMenu_drink();"/><span id="drinkMsg">reply</span><br>
 
-      </div>
 
-      <div id="photos">
-         <table>
 
-            <tr>
-               <th width=100px>Desired Goal</th>
-               <th>Prescribed Implement</th>
-               <th>Photo credit</th>
-            </tr>
+      <br><label for="dest">Check One:</label><br>
+      <input type="radio" name="dest" value="Eat in" checked>Eat in<br>
+      <input type="radio" name="dest" value="Take Out">Take Out<br>
 
-            <tr>
-               <td width=100px>Quickly change both location and the climate</td>
-               <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Festival_automobile_international_2015_-_Ferrari_F12_TRS_-_007_%28cropped%29.jpg/320px-Festival_automobile_international_2015_-_Ferrari_F12_TRS_-_007_%28cropped%29.jpg"/></td>
-               <td><a href=https://commons.wikimedia.org/wiki/User:Thesupermat>Thesupermat</a></td>
-            </tr>
+      <br><label for="tableNo">Table No. (1 to 12, zero if take-out):</label><br>
+      <input type="number" name="tableNo" value="0"  min="0" max="12"><br><br>
 
-            <tr>
-               <td width=100px>Quickly change location only</td>
-               <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tesla_Roadster.JPG/320px-Tesla_Roadster.JPG"/></td>
-               <td><a href=https://commons.wikimedia.org/wiki/User:Thomas_doerfer>Thomas Doerfer</a></td>
-            </tr>
-         </table>
+   </fieldset>
 
-      </div>
 
-      <div id="footer">
-         <h3>Acknowledgements</h3>
-         <p>Site based on video by Jake Wright:</p>
-         <a href=https://www.youtube.com/watch?v=0afZj1G0BIE>Learn CSS in 12 minutes</a>
-      </div>
-
-   </div>
-
+</form>
 </body>
 
 </html>
