@@ -47,7 +47,7 @@
       if ( proteinMenu.includes( document.getElementById("proteinReq").value ) ) {
          document.getElementById("proteinMsg").style.color = "Green";
          document.getElementById("proteinMsg").innerHTML = "Accepted";
-         order += ( " " + document.getElementById("proteinReq").value ) ;
+         order += ( ", " + document.getElementById("proteinReq").value ) ;
       }
       else {
          document.getElementById("proteinMsg").style.color = "Red";
@@ -55,10 +55,10 @@
       }
    }
 
-   function AskTableNo() {
+   function AskTableNum() {
 
       var tableNumLocal = prompt("Please enter your table number (1 - 12)");
-      /*if (tableNumLocal > 0 && tableNumLocal < 13) {
+      if (tableNumLocal > 0 && tableNumLocal < 13) {
          tableNum.value = tableNumLocal.value;
          document.getElementById("destMsg").style.color = "Green";
          document.getElementById("destMsg").innerHTML = "Accepted";
@@ -67,7 +67,7 @@
          document.getElementById("destMsg").style.color = "Red";
          document.getElementById("destMsg").innerHTML = "Error, enter a table number 1 - 12";
       }
-*/
+
    }
 
    function ExitDestOnTakeOut() {
@@ -78,6 +78,13 @@
 
    function PrintOrder() {
 
+      order += ( ", " + document.querySelector('input[name="cheese"]:checked').value );
+      var toppingsMarked = document.querySelectorAll('input[name="toppings"]:checked')
+      for (var i=0; i<toppingsMarked.length; i++) {
+         order += (", " + toppingsMarked[i].value);
+      }
+      order += ( ", " + document.querySelector('input[name="dressing"]:checked').value );
+   
       document.getElementById("printedOrder").innerHTML = order;
    }
 
@@ -96,8 +103,10 @@
    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Submarine_sandwich_with_toppings_and_dijon_mustard.jpg/320px-Submarine_sandwich_with_toppings_and_dijon_mustard.jpg"
       alt="link to img failed"/></td>
 
-   <br><h4>User must properly enter name, or message shows error.</h4>
+   <br>
 
+<div id="main">
+   <h4>User must properly enter name, or message shows error.</h4>
    <form>
       <label for="name">Customer Name: (1 to 5 alphabet chars)</label>
       <input id="nameInput" type=text name="name" onblur="CheckName();"/><span id="nameMsg"></span><br>
@@ -148,7 +157,7 @@
 
       <br><label for="dest">Check One: </label><br>
       <input type="radio" name="dest" onclick="ExitDestOnTakeOut()" value="Take Out">Take Out<br>
-      <input type="radio" name="dest" onclick="AskTableNo()" value="Eat In">Eat In<br>
+      <input type="radio" name="dest" onclick="AskTableNum()" value="Eat In">Eat In<br>
       <span id="destMsg"></span><br>
 
 </form>
@@ -158,7 +167,7 @@
 <button onclick="PrintOrder()">Click to review order</button>
 <br>
 <p id="printedOrder"></p><br><br>
-
+</div>
 </body>
 
 </html>
