@@ -1,0 +1,12 @@
+# User: danv
+# Minimalist .gitignore for simple projects
+
+[Ee]xclude/
+
+# Off-build src file directories 
+#[Bb]ones/
+
+# For VS Code environment (Rem-out if single-user project)
+#.env
+#.vscode/
+#*.code-workspace

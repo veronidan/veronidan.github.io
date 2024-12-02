@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <title>Project Wk 3</title>
+
+<script type="text/javascript">
+
+function AskName() {
+   var name = prompt("Please tell me your name");
+   if (name != '') {
+      document.getElementById("message").innerHTML =
+      "Hello " + name + ", Nice to meet you!";
+   }
+}
+
+</script>
+
+
+</head>
+
+<body onload="alert('Nice to meet you!');">
+
+<h1>User Interface:</h1>
+
+<p>Here is a button for interacting:</p>
+
+<button onclick="AskName()">Click Here</button>
+
+<p id="message"></p>
+
+
+</body>
+
+</html>

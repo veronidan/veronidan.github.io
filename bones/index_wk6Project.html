@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <title>Project Wk 6</title>
+
+   <link rel="stylesheet" type="text/css" href="wk6style.css">
+
+   <script type="text/javascript">
+
+   var order = "Order:";
+   var tableNum = 0;
+
+
+   function CheckName( ) {
+
+      var regex = /^[A-Za-z]{1,5}$/;
+      if ( regex.test( document.getElementById("nameInput").value ) ) {
+         document.getElementById("nameMsg").style.color = "Green";
+         document.getElementById("nameMsg").innerHTML = "Accepted";
+      }
+      else {
+         document.getElementById("nameMsg").style.color = "Red";
+         document.getElementById("nameMsg").innerHTML = "Error, invalid entry. Input 1 - 5 chars";
+      }
+   }
+
+   const breadMenu = [ "Wheat", "Oat", "Sourdough", "Cheesy Rye", "Country White"];
+   const proteinMenu = [ "Roast Beef", "Roast Turkey", "Italian Deli", "Tuna Salad", "Tangy Soy Slices"];
+
+   function CheckMenu_bread( ) {
+
+      if ( breadMenu.includes( document.getElementById("breadReq").value ) ) {
+         document.getElementById("breadMsg").style.color = "Green";
+         document.getElementById("breadMsg").innerHTML = "Accepted";
+         order += ( " " + document.getElementById("breadReq").value );
+      }
+      else {
+         document.getElementById("breadMsg").style.color = "Red";
+         document.getElementById("breadMsg").innerHTML = "Error, entry not on bread menu.  Choose from bread menu.";
+      }
+   }
+
+   function CheckMenu_protein( ) {
+
+      if ( proteinMenu.includes( document.getElementById("proteinReq").value ) ) {
+         document.getElementById("proteinMsg").style.color = "Green";
+         document.getElementById("proteinMsg").innerHTML = "Accepted";
+         order += ( ", " + document.getElementById("proteinReq").value ) ;
+      }
+      else {
+         document.getElementById("proteinMsg").style.color = "Red";
+         document.getElementById("proteinMsg").innerHTML = "Error, entry not on protein menu.  Choose from protein menu.";
+      }
+   }
+
+   function AskTableNum() {
+
+      var tableNumLocal = prompt("Please enter your table number (1 - 12)");
+      if (tableNumLocal > 0 && tableNumLocal < 13) {
+         tableNum.value = tableNumLocal.value;
+         document.getElementById("destMsg").style.color = "Green";
+         document.getElementById("destMsg").innerHTML = "Accepted";
+      }
+      else {
+         document.getElementById("destMsg").style.color = "Red";
+         document.getElementById("destMsg").innerHTML = "Error, enter a table number 1 - 12";
+      }
+
+   }
+
+   function ExitDestOnTakeOut() {
+
+      document.getElementById("destMsg").style.color = "Green";
+      document.getElementById("destMsg").innerHTML = "Accepted";
+   }
+
+   function PrintOrder() {
+
+      order += ( ", " + document.querySelector('input[name="cheese"]:checked').value );
+      var toppingsMarked = document.querySelectorAll('input[name="toppings"]:checked')
+      for (var i=0; i<toppingsMarked.length; i++) {
+         order += (", " + toppingsMarked[i].value);
+      }
+      order += ( ", " + document.querySelector('input[name="dressing"]:checked').value );
+   
+      document.getElementById("printedOrder").innerHTML = order;
+   }
+
+
+
+   </script>
+
+</head>
+
+<body>
+
+   <div id="heading">
+      <h1>Sub Sandwich Shop</h1>
+   </div>
+
+   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Submarine_sandwich_with_toppings_and_dijon_mustard.jpg/320px-Submarine_sandwich_with_toppings_and_dijon_mustard.jpg"
+      alt="link to img failed"/></td>
+
+   <br>
+
+<div id="main">
+   <h4>User must properly enter name, or message shows error.</h4>
+   <form>
+      <label for="name">Customer Name: (1 to 5 alphabet chars)</label>
+      <input id="nameInput" type=text name="name" onblur="CheckName();"/><span id="nameMsg"></span><br>
+
+      <br><h4>User must enter text per each menu, or onblur will show error. (case sensitive!)</h4>
+
+   <table>
+      <tr>
+         <th>Bread:</th><th>Protein:</th>
+      </tr>
+      <tr>
+         <td>
+            <p>Wheat<br>Oat<br>Sourdough<br>Cheesy Rye<br>Country White<br></p>
+         </td>
+         <td>
+            <p>Roast Beef<br>Roast Turkey<br>Italian Deli<br>Tuna Salad<br>Tangy Soy Slices<br></p>
+         </td>
+      </tr>
+   </table>
+   <br>
+
+      <label for="bread">Bread: </label>
+      <input id="breadReq" type=text name="bread" onblur="CheckMenu_bread();"/> <span id="breadMsg"></span><br>
+
+      <br><label for="protein">Protein: </label>
+      <input id="proteinReq" type=text name="protein" onblur="CheckMenu_protein();"/> <span id="proteinMsg"></span><br>
+
+      <br><label for="cheese">Cheese (select one): </label><br>
+      <input type="radio" name="cheese" value="American">American<br>
+      <input type="radio" name="cheese" value="Cheddar">Cheddar<br>
+      <input type="radio" name="cheese" value="Swiss">Swiss<br>
+      <input type="radio" name="cheese" value="Provolone">Provolone<br>
+      <input type="radio" name="cheese" value="Pepper Jack">Pepper Jack<br>
+
+      <br><label for="toppings">Toppings (select as many as wannted): </label><br>
+      <input type="checkbox" name="toppings" value="lettuce">Lettuce<br>
+      <input type="checkbox" name="toppings" value="onion">Onion<br>
+      <input type="checkbox" name="toppings" value="tomato">Tomato<br>
+      <input type="checkbox" name="toppings" value="pickle">Pickle<br>
+      <input type="checkbox" name="toppings" value="jalapenos">Jalapenos<br>
+
+      <br><label for="condiments">Dressing (select one): </label><br>
+      <input type="radio" name="dressing" value="vinegarette">Vinegarette<br>
+      <input type="radio" name="dressing" value="ranch">Ranch<br>
+      <input type="radio" name="dressing" value="french">French<br>
+      <input type="radio" name="dressing" value="honey mustard">Honey Mustard<br>
+      <input type="radio" name="dressing" value="garlic onion">Garlic Onion<br>
+
+      <br><label for="dest">Check One: </label><br>
+      <input type="radio" name="dest" onclick="ExitDestOnTakeOut()" value="Take Out">Take Out<br>
+      <input type="radio" name="dest" onclick="AskTableNum()" value="Eat In">Eat In<br>
+      <span id="destMsg"></span><br>
+
+</form>
+
+<p>After order complete, click below to review order:</p>
+
+<button onclick="PrintOrder()">Click to review order</button>
+<br>
+<p id="printedOrder"></p><br><br>
+</div>
+</body>
+
+</html>

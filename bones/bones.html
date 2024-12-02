@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <title>Project Wk 3</title>
+
+<script type="text/javascript">
+
+function LoadX( ) {
+   document.getElementById("alertText").innerHTML =
+   "Hello " + name + ", Nice to meet you!";
+
+}
+
+function InteractX( ) {
+   var name = prompt("Please tell me your name");
+   if (name != '') {
+      document.getElementById("alertText").innerHTML =
+      "Hello " + name + ", Nice to meet you!";
+   }
+}
+
+</script>
+
+
+</head>
+
+<body>
+
+<!-- <h1>This is a H1 Header</h1> -->
+
+<!-- <h3>This is a H3 Header</h3> -->
+
+<button onload="LoadX();"></button>
+
+<p>Some paragraph text is here.  Next is an alert test:</p>
+
+<button onclick="myPrompt();">Click here</button>
+
+<p id="loadText"></p>
+
+
+</body>
+
+</html>

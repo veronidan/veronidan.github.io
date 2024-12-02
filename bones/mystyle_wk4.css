@@ -1,0 +1,50 @@
+body {
+
+   background-color:darkgoldenrod;
+}
+
+table, tr, th, td {
+   position: relative;
+   margin-left: 60px;
+   border: 1px solid black;
+   padding: 10px
+}
+
+#heading {
+
+   background-color: blue;
+   color:darkgoldenrod;
+   text-align: center;
+
+}
+
+#container {
+
+   margin-left: auto;
+   margin-right: auto;
+   background-color: lightgoldenrodyellow;
+   width: 800px;
+}
+
+#content {
+
+   padding: 10px;
+}
+
+#nav {
+
+   width: 180px;
+   float: left;
+   padding: 10px;
+}
+
+#main {
+
+   width: 580px;
+   float: right;
+}
+
+#photos {
+
+   clear:both;
+}
